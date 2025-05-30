@@ -32,5 +32,8 @@ async def admin(message: types.Message):
 async def broadcast(message: types.Message):
     await broadcast_handler(message)
 
+from database import init_db
+
 if __name__ == "__main__":
+    init_db()  # ← تأكد من وجود هذا السطر
     executor.start_polling(dp, skip_updates=True)
